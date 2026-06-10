@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import Login from './auth/login'
+import Login from './auth/Login'
+import Signup from './auth/signup'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,7 +19,8 @@ function App() {
     setCount((count)=> count-1)}
     }
   return (
-    <Login/>
+    <Login/>,
+    <Signup/>
   )
 }
 

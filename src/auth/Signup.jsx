@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import './Login.css';
+import './Signup.css';
 import authService from '../services/authService';
-function Login() {
+function Signup() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [email,setEmail]=useState('')
+    const handleEmail = (mail) => {
+        setEmail(mail.target.value)
+
+    }
 
     const handleName = (eve) => {
         setName(eve.target.value)
@@ -26,22 +31,23 @@ function Login() {
                 <div id="b2"></div>
                 <div id="login">
                     <form onSubmit={handleSubmit}>
-                        <h3 id="h1">LOGIN FORM</h3>
+                        <h3 id="h1">SIGNUP PAGE</h3>
+                         <div className="i1">
+                            <label htmlFor="email">email</label><br />
+                            <input type="email" onChange={handleEmail} />
+                        </div>
                         <div className="i1">
                             <label htmlFor="username">Username</label><br />
                             <input type="text" onChange={handleName} />
                         </div>
                         <div className="i1">
-                            <label htmlFor="password">Password</label><br />
+                            <label htmlFor="password">Set Password</label><br />
                             <input type="password" onChange={handlePassword} />
                         </div>
                         <div className="i1">
-                            <button type='submit' className="b">Sign in</button>
+                            <button type='submit' className="b">Sign up</button>
                         </div>
-                        <div className="i1">
-                            <button className="b">Sign up</button>
-                            <label htmlFor="forgot">Forgot your Password?</label>
-                        </div>
+    
                     </form>
                 </div>
                 <div id="b3"></div>
@@ -50,4 +56,4 @@ function Login() {
         </>
     );
 }
-export default Login;
+export default Signup;
