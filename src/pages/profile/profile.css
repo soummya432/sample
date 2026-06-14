@@ -1,0 +1,36 @@
+#profile{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        rgb(73,12,97),
+        rgb(40,40,140)
+    );
+}
+
+.profile-card{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.profile-card img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-card h2{
+    margin-top:15px;
+}
+
+.info{
+    margin-top:20px;
+    text-align:left;
+}

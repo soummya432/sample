@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import './Login.css';
 import authService from '../services/authService';
+import Signup from './signup';
+import { Link } from 'react-router';
 function Login() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [message, setMessage] = useState('')
 
     const handleName = (eve) => {
         setName(eve.target.value)
@@ -14,11 +17,19 @@ function Login() {
         setPassword(pass.target.value)
     }
 
-    const handleSubmit = (eve)=>{
-        eve.preventDefault()
-        authService.login(name, password)
-    }
+   const handleSubmit = async (eve) => {
+    eve.preventDefault();
 
+    try {
+        const response = await authService.login(name, password);
+
+        setMessage(response.data.message);
+    }
+    catch(error){
+        setMessage("Login Failed");
+        console.log(error);
+    }
+}
     return (
         <>
             <div id="parent">
@@ -37,9 +48,12 @@ function Login() {
                         </div>
                         <div className="i1">
                             <button type='submit' className="b">Sign in</button>
+                            <p>{message}</p>
                         </div>
                         <div className="i1">
-                            <button className="b">Sign up</button>
+                             <label htmlFor="signup">Dont have an account?</label>
+                            <Link to={'/Signup'}>Sign up</Link>
+                            <br/>
                             <label htmlFor="forgot">Forgot your Password?</label>
                         </div>
                     </form>

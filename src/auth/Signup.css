@@ -7,9 +7,9 @@
     border-radius: 30px;
     height: 40px;
 }
-#login{
+#signup{
     width: 280px;
-    height: 280px;
+    height: 350px;
     background-color: aliceblue;
     padding: 0px 0px 30px 0px;
     border: 0.5px solid black;
@@ -17,8 +17,8 @@
     
 }
 #parent{
-    width: 700px;
-    height: 700px;
+    width: 100vW;
+    height: 100vh;
     background-color: rgb(73, 12, 97);
     display: flex;
     justify-content: center;

@@ -16,13 +16,13 @@
     border-radius: 30px;
     
 }
-#parent{
-    width: 700px;
-    height: 700px;
+#parent{ width: 1000vW;
+    height: 1000vh;
     background-color: rgb(73, 12, 97);
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .i1{
     padding: 10px 20px 10px 20px;

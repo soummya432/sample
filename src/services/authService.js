@@ -12,7 +12,7 @@ const authService={
     }
     catch(error)
     {
-        return console.error("error");
+        console.log(error);
         
     }
    },
@@ -20,12 +20,12 @@ const authService={
         console.log(email,name, password);
         
     try{
-       const response=await api.post("/Signup",{email,name,password});
+       const response=await api.post("/signup",{email,name,password});
         return response;
     }
     catch(error)
     {
-        return console.error("error");
+        console.log(error);
         
     }
    },

@@ -1,0 +1,16 @@
+#home{
+    min-height:90vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        rgb(73,12,97),
+        rgb(40,40,140)
+    );
+
+    color:white;
+}
