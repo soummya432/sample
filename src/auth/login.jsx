@@ -22,29 +22,28 @@ function Login() {
    const handleSubmit = async (eve) => {
     eve.preventDefault();
 
-    try {
-        const response = await authService.login(name, password);
-        console.log(response.data);
-        
+   try {
+    const response = await authService.login(name, password);
 
-        setMessage(response.data.message);
+    console.log(response.data);
 
-        if (response.data.success) {
-             console.log("Success");
-            console.log(response.data.success);
-        
-          
-            
-            navigate('/home');
-        }
+    if (response.data.success) {
 
-    } catch(error){
+        localStorage.setItem(
+            "user",
+            JSON.stringify(response.data.data)
+        );
 
+        setMessage("Login Successful");
+
+        navigate("/home");
+    }
+
+} catch (error) {
     console.log(error);
 
     setMessage(
-        error.response?.data?.message ||
-        "Login Failed"
+        error.response?.data?.message || "Login Failed"
     );
 }
 }

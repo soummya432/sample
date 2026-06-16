@@ -42,9 +42,9 @@ function Profile() {
                     :
                     (
                         <div className="profile-info">
-                            <h2>{name}</h2>
+                            <h2>{user?.name}</h2>
 
-                            <p>{email}</p>
+                            <p>{user?.email}</p>
 
                         </div>
                     )
