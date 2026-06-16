@@ -13,6 +13,7 @@ const authService={
     catch(error)
     {
         console.log(error);
+        throw error;
         
     }
    },
@@ -26,6 +27,7 @@ const authService={
     catch(error)
     {
         console.log(error);
+        throw error;
         
     }
    },

@@ -1,24 +1,65 @@
+import { useState } from "react";
 import "./profile.css";
 
 function Profile() {
-  return (
-    <div id="profile">
-      <div className="profile-card">
-        <img
-          src="https://via.placeholder.com/150"
-          alt="profile"
-        />
 
-        <h2>Soumya</h2>
-        <p>Frontend Developer</p>
+    const [edit,setEdit]=useState(false);
 
-        <div className="info">
-          <p>Email: soumya@example.com</p>
-          <p>Phone: +91 9876543210</p>
+    const user=JSON.parse(localStorage.getItem("user"));
+    const [name,setName]=useState(user?.name||"");
+    const [email,setEmail]=useState(user?.email||"");
+
+    return (
+        <div id="profile">
+
+            <div className="profile-card">
+
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    alt="profile"
+                />
+
+                {
+                    edit ?
+                    (
+                        <>
+                            <input
+                                value={name}
+                                onChange={(e)=>setName(e.target.value)}
+                            />
+
+                            <input
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}
+                            />
+
+                            <input
+                                value={income}
+                                onChange={(e)=>setIncome(e.target.value)}
+                            />
+                        </>
+                    )
+                    :
+                    (
+                        <div className="profile-info">
+                            <h2>{name}</h2>
+
+                            <p>{email}</p>
+
+                        </div>
+                    )
+                }
+
+                <button
+                    onClick={()=>setEdit(!edit)}
+                >
+                    {edit ? "Save Profile" : "Edit Profile"}
+                </button>
+
+            </div>
+
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Profile;

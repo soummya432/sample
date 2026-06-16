@@ -3,6 +3,7 @@ import './Signup.css';
 import authService from '../services/authService';
 import Login from './login';
 import { Link } from 'react-router';
+
 function Signup() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -31,9 +32,14 @@ function Signup() {
         setMessage(response.data.message);
     }
     catch(error){
-        setMessage("Signup Failed");
-        console.log(error);
-    }
+
+    console.log(error);
+
+    setMessage(
+        error.response?.data?.message ||
+        "Signup Failed"
+    );
+}
 }
 
     return (
@@ -57,12 +63,12 @@ function Signup() {
                             <input type="password" onChange={handlePassword} />
                         </div>
                         <div className="i1">
-                            <button type='submit' className="b">Sign up</button>
+                            <button className='b'>Sign up</button>
                             <p>{message}</p>                       
                         </div>
                          <div className="i1">
                         <label htmlFor="login">Login again?</label>
-                        <Link to={'/Login'}>Login</Link>
+                        <Link to={'/login'}>Login</Link>
                         </div>
     
                     </form>
