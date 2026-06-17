@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Dashbord from "../pages/dashbord/Dashbord";
 import Layout from "../layout/Layout";
 import Profile from "../pages/profile/Profile";
+import TransactionHistory from "../pages/transactions/TransactionHistory";     
 import { createBrowserRouter } from "react-router-dom";
 const router=createBrowserRouter([
 
@@ -35,6 +36,10 @@ const router=createBrowserRouter([
             {
                 path:'profile',
                 element:<Profile/>
+            },
+            {
+                path:'transaction',
+                element:<TransactionHistory/>
             }
 
         ]

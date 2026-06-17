@@ -1,28 +1,20 @@
-#h1{
-    background-color: rgb(163, 77, 159);
-    padding: 20px 50px 10px 60px;
-    color: azure;
-    border: 1px solid rgb(219, 205, 231);
-    margin: 0px 0px 10px 0px;
-    border-radius: 30px;
-    height: 40px;
-}
+
 #login{
-    width: 280px;
-    height: 280px;
-    background-color: aliceblue;
-    padding: 0px 0px 30px 0px;
-    border: 0.5px solid black;
+    width: 380px;
+    padding: 35px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
     border-radius: 30px;
-    
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
-#parent{ width: 1000vW;
-    height: 1000vh;
-    background-color: rgb(73, 12, 97);
+#parent{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg,#182848,#4b6cb7);
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: relative;
 }
 .i1{
     padding: 10px 20px 10px 20px;
@@ -55,4 +47,38 @@
     height: 50px;
     background-color:rgb(253, 2, 128);
     border-radius: 50px;
+}
+#login h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 40px;
+}
+
+#login form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-field{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#login button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ff6ec4,#7873f5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }

@@ -16,6 +16,7 @@ function Layout() {
           <Link to="/profile">Profile</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Signup</Link>
+          <Link to="/transaction">Transaction</Link>
         </nav>
 
       </header>

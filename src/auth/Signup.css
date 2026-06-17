@@ -1,58 +1,109 @@
-#h1{
-    background-color: rgb(163, 77, 159);
-    padding: 20px 50px 10px 60px;
-    color: azure;
-    border: 1px solid rgb(219, 205, 231);
-    margin: 0px 0px 10px 0px;
-    border-radius: 30px;
-    height: 40px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#signup{
-    width: 280px;
-    height: 350px;
-    background-color: aliceblue;
-    padding: 0px 0px 30px 0px;
-    border: 0.5px solid black;
-    border-radius: 30px;
-    
+
+html,
+body,
+#root{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
+
 #parent{
-    width: 100vW;
     height: 100vh;
-    background-color: rgb(73, 12, 97);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg,#182848,#4b6cb7);
+    position: relative;
+    overflow: hidden;
 }
-.i1{
-    padding: 10px 20px 10px 20px;
+
+#signup{
+    width: 380px;
+    padding: 35px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
-.b{
-     background-color: rgb(163, 77, 159);
-     color: azure;
+
+#signup h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 40px;
 }
+
+#signup form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-field{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-field:focus{
+    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+.error{
+    color: #ffb3b3;
+    font-size: 13px;
+    margin-top: -8px;
+}
+
+#signup button{
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ff6ec4,#7873f5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#signup button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#b1,#b2,#b3,#b4{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
 #b1{
-    width: 50px;
-    height: 50px;
-    background-color:pink;
-    border-radius: 50px;
+    left: 15%;
+    background: pink;
 }
 
 #b2{
-    width: 50px;
-    height: 50px;
-    background-color:rgb(214, 30, 61);
-    border-radius: 50px;
+    left: 20%;
+    background: hotpink;
 }
+
 #b3{
-    width: 50px;
-    height: 50px;
-    background-color:rgb(204, 103, 182);
-    border-radius: 50px;
+    right: 15%;
+    background: pink;
 }
+
 #b4{
-    width: 50px;
-    height: 50px;
-    background-color:rgb(253, 2, 128);
-    border-radius: 50px;
+    right: 20%;
+    background: hotpink;
 }

@@ -33,10 +33,6 @@ function Profile() {
                                 onChange={(e)=>setEmail(e.target.value)}
                             />
 
-                            <input
-                                value={income}
-                                onChange={(e)=>setIncome(e.target.value)}
-                            />
                         </>
                     )
                     :
