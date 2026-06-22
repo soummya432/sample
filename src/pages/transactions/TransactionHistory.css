@@ -1,85 +1,70 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 #transaction-page{
     min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:linear-gradient(
-        135deg,
-        #182848,
-        #4b6cb7
-    );
+    background:linear-gradient(135deg,#182848,#4b6cb7);
+    padding:40px;
+    overflow-y:auto;
 }
 
 .transaction-card{
-    width:450px;
-
+    width:500px;
+    margin:auto;
     background:white;
-
     padding:30px;
-
     border-radius:20px;
-
-    display:flex;
-    flex-direction:column;
-    gap:15px;
 }
 
 .transaction-card h1{
     text-align:center;
-}
-
-.transaction-card form{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+    margin-bottom:20px;
 }
 
 .transaction-card input,
 .transaction-card select{
+    width:100%;
     padding:12px;
-
-    border-radius:10px;
-
-    border:1px solid #ccc;
+    margin-bottom:15px;
 }
 
 .transaction-card button{
+    width:100%;
     padding:12px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#5a67ff;
-
-    color:white;
-
     cursor:pointer;
 }
 
+.counter{
+    color:white;
+    text-align:center;
+    margin:30px 0;
+}
 
-.transaction-card{
-    background:white;
-    padding:15px;
+.transaction-list{
+    width:80%;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.transaction-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    margin-bottom:20px;
     border-radius:15px;
-    margin-bottom:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    color:white;
 }
 
-.transaction-card h3{
-    margin-bottom:10px;
-}
-.transaction-list {
-  width: 80%;
-  margin: 30px auto;
+.credit-card{
+    background:green;
 }
 
-.transaction-item {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+.debit-card{
+    background:red;
 }

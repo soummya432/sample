@@ -1,0 +1,79 @@
+.expense-card {
+  padding: 1.2rem 1.3rem;
+  border-radius: 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1rem;
+}
+
+.expense-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.expense-card-top p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.expense-category {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.expense-amount {
+  font-size: 1.05rem;
+}
+
+.expense-amount.income {
+  color: var(--success);
+}
+
+.expense-amount.expense {
+  color: var(--danger);
+}
+
+.expense-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.expense-card-meta small {
+  color: var(--muted);
+}
+
+.expense-card-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.expense-card-actions button {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.expense-card-actions button:hover {
+  background: rgba(79, 70, 229, 0.12);
+}
+
+.expense-card-actions button.delete {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: var(--danger);
+}

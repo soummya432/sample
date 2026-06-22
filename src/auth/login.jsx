@@ -1,104 +1,69 @@
-import { useState } from 'react';
-import './Login.css';
-import authService from '../services/authService';
-import Signup from './signup';
-import { Link } from 'react-router';
-import { useNavigate } from 'react-router-dom';  
-import { Field, Form, Formik } from "formik";
-import * as Yup from 'yup';                                       
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "../utils/formSchemas";
+import { useAuthContext } from "./AuthContext";
+import "./Auth.css";
+
 function Login() {
-    const LoginSchema = Yup.object().shape({
-            name: Yup.string()
-                .min(2, 'Too Short!')   
-                .max(50, 'Too Long!')       
-                .required('Required'),
-            password: Yup.string()
-                .min(8, 'Password must be at least 8 characters')
-                .required('Required'),                                                                                                          
-        });                         
-    // const [name, setName] = useState('')
-    // const [password, setPassword] = useState('')
-    const [message, setMessage] = useState('')
+  const { login } = useAuthContext();
+  const navigate = useNavigate();
+  const [status, setStatus] = useState({ type: "", message: "" });
 
-    const navigate=useNavigate();
-    // const handleName = (eve) => {
-    //     setName(eve.target.value)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({ resolver: zodResolver(loginSchema) });
 
-    // }
+  const onSubmit = async (values) => {
+    setStatus({ type: "", message: "" });
 
-    // const handlePassword = (pass) => {
-    //     setPassword(pass.target.value)
-    // }
-
-   const handleSubmit = async (values) => {
-
-   try {
-    const response = await authService.login(values.name, values.password);
-
-    console.log(response.data);
-
-    if (response.data.success) {
-
-        localStorage.setItem(
-            "user",
-            JSON.stringify(response.data.data)
-        );
-
-        setMessage("Login Successful");
-
-        navigate("/home");
+    try {
+      await login({ email: values.email, password: values.password });
+      setStatus({ type: "success", message: "Welcome back! Redirecting to dashboard..." });
+      navigate("/dashboard");
+    } catch (error) {
+      setStatus({ type: "error", message: "Login failed. Check your credentials and try again." });
     }
+  };
 
-} catch (error) {
-    console.log(error);
+  return (
+    <div className="auth-page auth-login">
+      <section className="auth-panel">
+        <div className="auth-title">
+          <span className="auth-badge">Expense Tracker</span>
+          <h1>Secure login</h1>
+          <p>Sign in to access your personal finance dashboard.</p>
+        </div>
 
-    setMessage(
-        error.response?.data?.message || "Login Failed"
-    );
+        {status.message && <div className={`auth-notice ${status.type}`}>{status.message}</div>}
+
+        <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" {...register("email")} />
+            {errors.email && <span className="form-error">{errors.email.message}</span>}
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" {...register("password")} />
+            {errors.password && <span className="form-error">{errors.password.message}</span>}
+          </div>
+
+          <button className="auth-button" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Signing in..." : "Login"}
+          </button>
+        </form>
+
+        <p className="auth-footer">
+          Don&apos;t have an account? <Link to="/auth/signup">Create one</Link>
+        </p>
+      </section>
+    </div>
+  );
 }
-}
-    return (
-        <>
-            <div id="parent">
-                <div id="b1"></div>
-                <div id="b2"></div>
-                <div id="login">
-     <h1>Login</h1>
-     <Formik
-       initialValues={{
-         name: '',
-         password: '',
-       }}
-       validationSchema={LoginSchema}
-       onSubmit={handleSubmit}
-     >
-       {({ errors, touched }) => (
-         <Form>
-           <Field name="name" 
-           placeholder="name"
-           className="input-field"
-           />
-           {errors.name && touched.name &&(
-             <div>{errors.name}</div>
-           )}
-           <Field name="password"
-            type="password"
-            placeholder="Password"
-            className="input-field"
-           />
-           {errors.password && touched.password &&(
-             <div>{errors.password}</div>
-           )}
-           <button type="submit">Login</button>
-           
-         </Form>
-       )}
-     </Formik>
-                </div>
-                <div id="b3"></div>
-                <div id="b4"></div>
-            </div>
-        </>
-    );
-}
+
 export default Login;

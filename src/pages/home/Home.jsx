@@ -1,6 +1,5 @@
 import "./home.css";
-import Profile from "../profile/Profile";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (

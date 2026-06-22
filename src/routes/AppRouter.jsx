@@ -1,12 +1,12 @@
-import Login from "../auth/Login";
-import Signup from "../auth/Signup";
+import { Navigate, createBrowserRouter } from "react-router-dom";
+import LoginPage from "../features/auth/LoginPage";
+import SignupPage from "../features/auth/SignupPage";
+import Layout from "../layouts/Layout";
+import ProtectedRoute from "./ProtectedRoute";
 import Home from "../pages/home/Home";
 import Dashbord from "../pages/dashbord/Dashbord";
-import Layout from "../layout/Layout";
 import Profile from "../pages/profile/Profile";
 import TransactionHistory from "../pages/transactions/TransactionHistory";
-import ProtectedRoute from "../auth/ProtectedRoute";
-import { Navigate, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: "signup",
-        element: <Signup />,
+        element: <SignupPage />,
       },
     ],
   },

@@ -1,6 +1,6 @@
 import "./TransactionHistory.css";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function TransactionHistory() {
   const [transactions, setTransactions] = useState([]);
@@ -25,7 +25,7 @@ function TransactionHistory() {
       date,
     };
 
-    setTransactions([...transactions, newTransaction]);
+    setTransactions((prev) => [...prev, newTransaction]);
 
     setItem("");
     setType("Debit");
@@ -36,6 +36,7 @@ function TransactionHistory() {
 
   return (
     <div id="transaction-page">
+
       <div className="transaction-card">
         <h1>Transaction History</h1>
 
@@ -81,7 +82,10 @@ function TransactionHistory() {
           onChange={(e) => setDate(e.target.value)}
         />
 
-        <button onClick={handleSubmit}>
+        <button
+          type="button"
+          onClick={handleSubmit}
+        >
           Add Transaction
         </button>
 
@@ -93,34 +97,45 @@ function TransactionHistory() {
         </Link>
       </div>
 
-      {/* TRANSACTION LIST */}
-
+      <h2 className="counter">
+        Total Transactions: {transactions.length}
+      </h2>
+<div
+  style={{
+    background:"yellow",
+    color:"black",
+    padding:"20px",
+    margin:"20px"
+  }}
+>
+  TEST BOX
+</div>
       <div className="transaction-list">
+
         {transactions.map((t, index) => (
           <div
-            className="transaction-item"
             key={index}
+            className={
+              t.type === "Credit"
+                ? "transaction-item credit-card"
+                : "transaction-item debit-card"
+            }
           >
-            <h3>{t.item}</h3>
+            <div>
+              <h3>{t.item}</h3>
+              <p>{t.category}</p>
+              <p>{t.date}</p>
+            </div>
 
-            <p>
-              <strong>Type:</strong> {t.type}
-            </p>
-
-            <p>
-              <strong>Category:</strong> {t.category}
-            </p>
-
-            <p>
-              <strong>Amount:</strong> ₹{t.amount}
-            </p>
-
-            <p>
-              <strong>Date:</strong> {t.date}
-            </p>
+            <div>
+              <h2>₹{t.amount}</h2>
+              <p>{t.type}</p>
+            </div>
           </div>
         ))}
+
       </div>
+
     </div>
   );
 }

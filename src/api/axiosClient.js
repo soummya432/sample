@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const api = axios.create({
+const axiosClient = axios.create({
   baseURL: "http://localhost:3000/api/auth",
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-api.interceptors.request.use(
+axiosClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("auth_token");
     if (token) {
@@ -21,4 +21,4 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-export default api;
+export default axiosClient;

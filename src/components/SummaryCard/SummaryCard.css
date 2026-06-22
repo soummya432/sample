@@ -1,0 +1,46 @@
+.summary-card {
+  padding: 1.35rem 1.4rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summary-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.summary-card h2 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.summary-card span {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: rgba(79, 70, 229, 0.12);
+}
+
+.summary-primary span {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+.summary-secondary span {
+  background: rgba(124, 58, 237, 0.18);
+}
+
+.summary-success span {
+  background: rgba(34, 197, 94, 0.18);
+}
+
+.summary-danger span {
+  background: rgba(239, 68, 68, 0.18);
+}

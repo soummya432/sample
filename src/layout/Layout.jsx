@@ -1,28 +1,19 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import "./Layout.css";
 
 function Layout() {
   return (
-    <>
-      <header className="navbar">
-
-        <div className="logo">
-          💰 Budget Tracker
-        </div>
-
-        <nav>
-          <Link to="/home">Home</Link>
-          <Link to="/dashbord">Dashboard</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/transaction">Transaction</Link>
-        </nav>
-
-      </header>
-
-      <Outlet />
-    </>
+    <div className="layout-shell">
+      <Sidebar />
+      <div className="layout-main">
+        <Navbar />
+        <main className="layout-content">
+          <Outlet />
+        </main>
+      </div>
+    </div>
   );
 }
 
